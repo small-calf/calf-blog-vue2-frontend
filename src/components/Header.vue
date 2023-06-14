@@ -1,7 +1,7 @@
 <template>
 	<v-container class="lighten-5">
 		<v-row justify="center">
-			<v-col v-for="n in title" :key="n" class="pa-2">
+			<v-col v-for="n in title" :key="n" align="center" lg="2">
 				{{ n }}
 			</v-col>
 		</v-row>
