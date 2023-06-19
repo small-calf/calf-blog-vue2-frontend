@@ -38,7 +38,6 @@ export default {
 			{ text: 'Real-Time', icon: 'mdi-numeric-4-box-multiple-outline' },
 			{ text: 'Audience', icon: 'mdi-numeric-5-box-multiple-outline' },
 			{ text: 'Conversions', icon: 'mdi-numeric-6-box-multiple-outline' },
-			{ text: 'Conversions', icon: 'mdi-numeric-7-box-multiple-outline' },
 		],
 	}),
 };

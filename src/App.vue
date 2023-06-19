@@ -12,6 +12,7 @@
 				<!-- 如果使用 vue-router -->
 				<router-view></router-view>
 			</v-container>
+			<Footer></Footer>
 		</v-main>
 	</v-app>
 </template>
@@ -20,12 +21,14 @@
 import Header from '@comp/Header.vue';
 import Main from '@comp/main/Main.vue';
 import Content from '@views/content/Content.vue';
+import Footer from '@comp/Footer.vue';
 export default {
 	name: 'App',
 	components: {
 		Header,
 		Main,
 		Content,
+		Footer,
 	},
 	data: () => ({
 		//
