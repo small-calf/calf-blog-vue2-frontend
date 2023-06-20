@@ -1,5 +1,6 @@
 <template>
 	<v-container>
+		<Main></Main>
 		<v-row class="content">
 			<v-col class="rotation" lg="8">
 				<List-item col></List-item>
@@ -14,10 +15,12 @@
 <script>
 import ListItem from './ListItem.vue';
 import AuthorRecommend from './AuthorRecommend.vue';
+import Main from '@comp/main/Main.vue';
 export default {
 	components: {
 		ListItem,
 		AuthorRecommend,
+		Main,
 	},
 };
 </script>

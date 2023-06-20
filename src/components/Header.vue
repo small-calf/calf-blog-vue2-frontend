@@ -1,8 +1,17 @@
 <template>
 	<v-container class="lighten-5">
 		<v-row justify="center" align="center">
-			<v-col v-for="n in title" :key="n" align="center">
-				{{ n }}
+			<v-col>
+				<v-tabs background-color="primary" align-with-title>
+					<v-tab
+						v-for="n in title"
+						:key="n"
+						align="center"
+						class="text-subtitle-1 font-weight-bold"
+					>
+						{{ n }}
+					</v-tab>
+				</v-tabs>
 			</v-col>
 			<v-col cols="2">
 				<v-toolbar dense floating rounded>
@@ -10,7 +19,7 @@
 						hide-details
 						prepend-icon="mdi-magnify"
 						single-line
-						autofocus="true"
+						:autofocus="true"
 						clearable
 					></v-text-field>
 				</v-toolbar>
@@ -21,9 +30,31 @@
 				</v-btn>
 			</v-col>
 			<v-col cols="1">
-				<v-btn icon>
-					<v-icon color="#fff">mdi-message-text</v-icon>
-				</v-btn>
+				<v-badge
+					bordered
+					color="red"
+					icon="mdi-num-1"
+					overlap
+					content="123"
+				>
+					<v-menu open-on-hover offset-y>
+						<template v-slot:activator="{ on, attrs }">
+							<v-btn v-bind="attrs" v-on="on" icon>
+								<v-icon color="#fff">mdi-message-text</v-icon>
+							</v-btn>
+						</template>
+						<v-list>
+							<v-list-item
+								v-for="(item, index) in items"
+								:key="index"
+							>
+								<v-list-item-title>
+									{{ item.title }}</v-list-item-title
+								>
+							</v-list-item>
+						</v-list>
+					</v-menu>
+				</v-badge>
 			</v-col>
 			<v-col cols="1">
 				<v-btn icon>
@@ -44,6 +75,12 @@ export default {
 	data() {
 		return {
 			title: ['首页', '分类', '热点', '问答', '关注'],
+			items: [
+				{ title: 'Click Me' },
+				{ title: 'Click Me' },
+				{ title: 'Click Me' },
+				{ title: 'Click Me 2' },
+			],
 		};
 	},
 };

@@ -56,7 +56,9 @@
 
 					<v-expansion-panel-content>
 						<v-divider></v-divider>
-						<v-card-text>{{ lorem }}</v-card-text>
+						<v-card-text @click="toDetails">{{
+							lorem
+						}}</v-card-text>
 						<v-bottom-navigation
 							:value="value"
 							color="primary"
@@ -84,12 +86,18 @@
 				</v-expansion-panel>
 			</v-expansion-panels>
 		</v-row>
+		<Pagination></Pagination>
 	</v-container>
 </template>
 
 <script>
+import Pagination from '@comp/page/Pagination.vue';
 export default {
+	components: {
+		Pagination,
+	},
 	data: () => ({
+		value: '',
 		messages: [
 			{
 				avatar: 'https://avatars0.githubusercontent.com/u/9064066?v=4&s=460',
@@ -114,9 +122,78 @@ export default {
 				title: 'Shop your way',
 				exceprt: 'New deals available, Join Today',
 			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
+			{
+				color: 'teal',
+				icon: 'mdi-tag',
+				name: 'Promos',
+				new: 2,
+				total: 4,
+				title: 'Shop your way',
+				exceprt: 'New deals available, Join Today',
+			},
 		],
 		lorem: 'Lorem ipsum dolor sit amet, at aliquam vivendum vel, everti delicatissimi cu eos. Dico iuvaret debitis mel an, et cum zril menandri. Eum in consul legimus accusam. Ea dico abhorreant duo, quo illum minimum incorrupte no, nostro voluptaria sea eu. Suas eligendi ius at, at nemore equidem est. Sed in error hendrerit, in consul constituam cum.',
 	}),
+	methods: {
+		//查看文章详情信息
+		toDetails() {
+			this.$router.push('/details');
+		},
+	},
 };
 </script>
 
