@@ -23,6 +23,46 @@ const routes = [
 		name: 'Details',
 		component: () => import('@views/details/Details.vue'),
 	},
+	{
+		path: '/category',
+		name: 'Category',
+		component: () => import('@views/category/Category.vue'),
+	},
+	{
+		path: '/hotspot',
+		name: 'Hotspot',
+		component: () => import('@views/hotspot/Hotspot.vue'),
+	},
+	{
+		path: '/follow',
+		name: 'Follow',
+		component: () => import('@views/follow/Follow.vue'),
+	},
+	{
+		path: '/creativeCenter',
+		name: 'CreativeCenter',
+		component: () =>
+			import('@views/personal/creativecenter/CreativeCenter.vue'),
+		children: [
+			{
+				path: 'articleManage',
+				name: 'ArticleManage',
+				component: () =>
+					import('@views/personal/creativecenter/ArticleManage.vue'),
+			},
+			{},
+		],
+	},
+	{
+		path: '/homePage',
+		name: 'HomePage',
+		component: () => import('@views/personal/HomePage.vue'),
+	},
+	{
+		path: '/writeBlog',
+		name: 'WriteBlog',
+		component: () => import('@views/writeblog/WriteBlog.vue'),
+	},
 ];
 
 const router = new VueRouter({

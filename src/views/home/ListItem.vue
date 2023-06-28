@@ -1,8 +1,6 @@
 <template>
 	<v-container>
 		<v-row justify="center">
-			<v-subheader>Hot selling item</v-subheader>
-
 			<v-expansion-panels>
 				<v-expansion-panel
 					v-for="(message, i) in messages"
@@ -32,6 +30,7 @@
 							</v-col>
 
 							<v-col class="text-no-wrap" cols="5" sm="3">
+								<strong v-html="message.title"></strong>
 								<v-chip
 									v-if="message.new"
 									:color="`${message.color} lighten-4`"
@@ -41,7 +40,6 @@
 								>
 									{{ message.new }} new
 								</v-chip>
-								<strong v-html="message.title"></strong>
 							</v-col>
 
 							<v-col
@@ -56,9 +54,21 @@
 
 					<v-expansion-panel-content>
 						<v-divider></v-divider>
-						<v-card-text @click="toDetails">{{
-							lorem
-						}}</v-card-text>
+						<v-row>
+							<v-col cols="8">
+								<v-card-text @click="toDetails">
+									{{ lorem }}
+								</v-card-text>
+							</v-col>
+							<v-col cols="4">
+								<v-img
+									class="my-2"
+									height="100"
+									src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+								></v-img>
+							</v-col>
+						</v-row>
+
 						<v-bottom-navigation
 							:value="value"
 							color="primary"

@@ -4,13 +4,13 @@
 			<Header></Header>
 		</v-app-bar>
 
-		<v-main>
+		<v-main class="grey lighten-5">
 			<!-- 给应用提供合适的间距 -->
 			<v-container fluid>
 				<router-view></router-view>
 			</v-container>
-			<Footer></Footer>
 		</v-main>
+		<Footer></Footer>
 	</v-app>
 </template>
 

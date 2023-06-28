@@ -1,6 +1,6 @@
 <template>
-	<v-footer dark padless absolute>
-		<v-card class="flex" flat tile>
+	<v-footer dark padless fixed app>
+		<v-card class="flex" flat>
 			<v-card-title class="primary">
 				<strong class="subheading">calf 个人博客平台!</strong>
 
@@ -26,8 +26,4 @@ export default {
 	}),
 };
 </script>
-<style lang="scss" scoped>
-.v-footer {
-	bottom: -40px !important;
-}
-</style>
+<style lang="scss" scoped></style>

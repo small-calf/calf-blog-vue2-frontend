@@ -3,6 +3,9 @@
 		<Main></Main>
 		<v-row class="content">
 			<v-col class="rotation" lg="8">
+				<v-subheader class="justify-center"
+					>Hot selling item</v-subheader
+				>
 				<List-item col></List-item>
 			</v-col>
 			<v-col class="rotation" lg="4">
