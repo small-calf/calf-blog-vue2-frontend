@@ -62,14 +62,14 @@ export default {
 		open: [],
 		items: [
 			{
-				id: '/creativeCenter',
+				id: '/appMain/creativeCenter',
 				name: '首页',
 			},
 			{
 				id: 'creativeCenter/articleManage11',
 				name: '内容管理',
 				children: [
-					{ id: '/creativeCenter/articleManage', name: '文章管理' },
+					{ id: '/appMain/articleManage', name: '文章管理' },
 					{ id: 4, name: '专栏管理' },
 				],
 			},

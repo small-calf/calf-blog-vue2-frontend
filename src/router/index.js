@@ -39,18 +39,24 @@ const routes = [
 		component: () => import('@views/follow/Follow.vue'),
 	},
 	{
-		path: '/creativeCenter',
-		name: 'CreativeCenter',
+		path: '/appMain',
+		name: 'Index',
 		component: () =>
-			import('@views/personal/creativecenter/CreativeCenter.vue'),
+			import('@views/personal/creativecenter/Index.vue'),
 		children: [
+			{
+				path: 'creativeCenter',
+				name: 'CreativeCenter',
+				component: () =>
+					import('@views/personal/creativecenter/CreativeCenter.vue'),
+			},
 			{
 				path: 'articleManage',
 				name: 'ArticleManage',
 				component: () =>
 					import('@views/personal/creativecenter/ArticleManage.vue'),
 			},
-			{},
+			
 		],
 	},
 	{

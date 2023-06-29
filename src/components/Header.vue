@@ -115,7 +115,7 @@ export default {
 			],
 			personCenter: [
 				{ title: '我的主页', path: '/homePage' },
-				{ title: '创作中心', path: '/creativeCenter' },
+				{ title: '创作中心', path: '/appMain/creativeCenter' },
 				{ title: '退出登录', path: '/logout' },
 			],
 		};
