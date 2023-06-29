@@ -2,7 +2,7 @@
 	<v-container>
 		<v-row justify="center">
 			<v-col cols="3">
-				<v-card>
+				<v-card height="1000">
 					<v-col>
 						<v-avatar class="ma-2" size="60">
 							<img
@@ -21,7 +21,7 @@
 							block
 							rounded
 							color="primary"
-							class="my-5 text-h5"
+							class="my-5 text-h6"
 							height="50"
 							dark
 							@click="writeBlog"
@@ -35,6 +35,7 @@
 					<v-divider></v-divider>
 					<v-col>
 						<v-treeview
+							class="text-subtitle-1"
 							v-model="open"
 							open-all
 							activatable
@@ -42,7 +43,6 @@
 							@update:active="handleNodeSelection"
 						></v-treeview>
 					</v-col>
-					<v-divider></v-divider>
 				</v-card>
 			</v-col>
 			<v-col cols="9">

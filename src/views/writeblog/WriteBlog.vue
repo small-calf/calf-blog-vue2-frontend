@@ -4,15 +4,52 @@
 		<v-card>
 			<v-row class="d-flex">
 				<v-col>
-					<v-btn
+					<v-dialog
+						transition="dialog-bottom-transition"
+						max-width="600"
+					>
+						<template v-slot:activator="{ on, attrs }">
+							<v-btn
+								:loading="loading5"
+								:disabled="loading5"
+								color="primary"
+								class="ma-2 white--text"
+								v-bind="attrs"
+								v-on="on"
+								@click="publish"
+							>
+								发布
+								<v-icon dark> mdi-publish </v-icon>
+							</v-btn>
+						</template>
+						<template v-slot:default="dialog">
+							<v-card>
+								<v-toolbar color="primary" dark
+									>Opening from the bottom</v-toolbar
+								>
+								<v-card-text>
+									<div class="text-h2 pa-12">
+										<publish></publish>
+									</div>
+								</v-card-text>
+								<!-- <v-card-actions class="justify-end">
+									<v-btn text @click="dialog.value = false"
+										>Close</v-btn
+									>
+								</v-card-actions> -->
+							</v-card>
+						</template>
+					</v-dialog>
+					<!-- <v-btn
 						:loading="loading5"
 						:disabled="loading5"
 						color="primary"
 						class="ma-2 white--text"
+						@click="publish"
 					>
 						发布
 						<v-icon dark> mdi-publish </v-icon>
-					</v-btn>
+					</v-btn> -->
 					<v-btn
 						outlined
 						:loading="loading5"
@@ -41,10 +78,14 @@
 </template>
 
 <script>
+import Publish from './Publish.vue';
 export default {
-	name: 'app',
+	components: {
+		Publish,
+	},
 	data() {
 		return {
+			publish: false,
 			content: '',
 			setting: {
 				menubar: false,
@@ -59,6 +100,11 @@ export default {
 				height: 600,
 			},
 		};
+	},
+	methods: {
+		publish() {
+			this.publish = !this.publish;
+		},
 	},
 };
 </script>
