@@ -50,6 +50,7 @@
 							<v-list-item
 								v-for="(item, index) in message"
 								:key="index"
+								@click="messageRouterPath(item.path)"
 							>
 								<v-list-item-title>
 									{{ item.title }}</v-list-item-title
@@ -107,11 +108,12 @@ export default {
 				{ name: '关注', path: '/follow' },
 			],
 			message: [
-				{ title: '评论和@' },
-				{ title: '新增粉丝' },
-				{ title: '赞和收藏' },
-				{ title: '私信' },
-				{ title: '系统通知' },
+				{ title: '评论', path: '/comment' },
+				{ title: '新增粉丝', path: '/addFans' },
+				{ title: '点赞', path: '/like' },
+				{ title: '收藏', path: '/collect' },
+				{ title: '私信', path: '/letter' },
+				{ title: '系统通知', path: '/sysNotify' },
 			],
 			personCenter: [
 				{ title: '我的主页', path: '/homePage' },
@@ -127,6 +129,10 @@ export default {
 		},
 		//个人主页路由跳转
 		personalRouterPath(path) {
+			this.$router.push(path);
+		},
+		//消息中心路由跳转
+		messageRouterPath(path) {
 			this.$router.push(path);
 		},
 	},

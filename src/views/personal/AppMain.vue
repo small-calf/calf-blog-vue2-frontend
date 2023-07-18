@@ -66,11 +66,11 @@ export default {
 				name: '首页',
 			},
 			{
-				id: 'creativeCenter/articleManage11',
+				id: '',
 				name: '内容管理',
 				children: [
 					{ id: '/appMain/articleManage', name: '文章管理' },
-					{ id: 4, name: '专栏管理' },
+					{ id: '/appMain/specialColumnManage', name: '专栏管理' },
 				],
 			},
 			{
@@ -97,6 +97,9 @@ export default {
 			this.$router.push('/writeBlog');
 		},
 		handleNodeSelection(selected) {
+			if (selected[0] === '') {
+				return;
+			}
 			// 处理选中节点的逻辑
 			this.$router.push(selected[0]);
 			console.log('选中的节点：', selected[0]);
