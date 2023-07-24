@@ -54,7 +54,9 @@
 														class="mx-2"
 														outlined
 														color="primary"
-														@click="a"
+														@click="
+															updateSettings()
+														"
 													>
 														修改个人资料
 														<v-icon right dark>
@@ -109,14 +111,18 @@
 			</v-row>
 		</v-fade-transition>
 		<ColumnSort class="mt-10"></ColumnSort>
+		<!--设置页-->
+		<Index :dialog.sync="dialog"></Index>
 	</v-container>
 </template>
 
 <script>
 import ColumnSort from './homepage/ColumnSort.vue';
+import Index from '../settings/Index.vue';
 export default {
 	components: {
 		ColumnSort,
+		Index,
 	},
 	data: () => ({
 		message: {
@@ -125,9 +131,16 @@ export default {
 			title: 'Welcome to Vuetify!',
 			excerpt: 'Thank you for joining our community...',
 		},
+		dialog: false,
 	}),
 	methods: {
 		a() {},
+		/**
+		 * 设置
+		 */
+		updateSettings() {
+			this.dialog = true;
+		},
 	},
 };
 </script>

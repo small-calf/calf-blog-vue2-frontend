@@ -103,9 +103,11 @@ export default {
 			title: [
 				{ name: '首页', path: '/' },
 				{ name: '分类', path: '/category' },
-				{ name: '热点', path: '/hotspot' },
+				{ name: '热搜', path: '/hotspot' },
 				{ name: '问答', path: '/question' },
 				{ name: '关注', path: '/follow' },
+				{ name: '留言板', path: '/speak' },
+				{ name: 'calf', path: '/calf' },
 			],
 			message: [
 				{ title: '评论', path: '/comment' },

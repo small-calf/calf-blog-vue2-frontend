@@ -15,13 +15,13 @@
 						></v-divider>
 
 						<v-list-item v-else :key="item.title" class="ma-2">
-							<!-- <v-list-item-avatar> -->
-							<v-img
-								:src="item.avatar"
-								max-height="150"
-								max-width="250"
-							></v-img>
-							<!-- </v-list-item-avatar> -->
+							<v-list-item-avatar>
+								<v-img
+									:src="item.avatar"
+									max-height="150"
+									max-width="250"
+								></v-img>
+							</v-list-item-avatar>
 
 							<v-list-item-content class="mx-4">
 								<v-list-item-title>{{
@@ -39,20 +39,9 @@
 							<v-menu bottom right>
 								<template v-slot:activator="{ on, attrs }">
 									<v-btn icon v-bind="attrs" v-on="on">
-										<v-icon>mdi-dots-horizontal</v-icon>
+										<v-icon>mdi-delete</v-icon>
 									</v-btn>
 								</template>
-
-								<v-list>
-									<v-list-item
-										v-for="(item, i) in menuItems"
-										:key="i"
-									>
-										<v-list-item-title>{{
-											item.title
-										}}</v-list-item-title>
-									</v-list-item>
-								</v-list>
 							</v-menu>
 						</v-list-item>
 					</template>
@@ -73,8 +62,8 @@ export default {
 			items: [
 				{
 					avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-					title: 'Brunch this weekend?',
-					subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+					title: 'calf私信了你',
+					subtitle: `私信内容`,
 					time: '2022-02-02 12:08:32',
 					articleCount: 0,
 				},
