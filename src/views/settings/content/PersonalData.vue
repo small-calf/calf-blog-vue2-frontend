@@ -7,7 +7,7 @@
           <v-col cols="4"> 个人资料 </v-col>
           <v-col cols="8" class="text--secondary">
             <v-fade-transition leave-absolute>
-              <span v-if="open" key="0"> 个体资料修改 </span>
+              <span v-if="open" key="0"> 个人资料修改 </span>
               <span v-else key="1">
                 {{ trip.name }}
               </span>
@@ -23,7 +23,7 @@
             <v-text-field
               v-model="userInfo.username"
               filled
-			  counter="50"
+              counter="50"
               label="用户名"
               :rules="rules.usernameRules"
               clearable
@@ -61,21 +61,31 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-text-field
-              v-model="userInfo.introduce"
-              filled
-              label="个人介绍"
+            <v-textarea
+              counter="300"
+              dense="true"
+              label="Text"
+              rows="2"
+              auto-grow
               :rules="rules.introduceRules"
+              :value="value"
               clearable
-            ></v-text-field>
+            ></v-textarea>
           </v-col>
           <v-col>
-            <v-text-field
-              v-model="userInfo.avatar"
-              filled
-              label="头像"
-              clearable
-            ></v-text-field>
+            <span>
+              我的头像 &nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+            <v-avatar
+              size="100"
+            >
+              <img
+                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                alt="John"
+              >
+              
+            </v-avatar>
+            &nbsp;&nbsp;&nbsp;&nbsp;支持 jpg、png、jpeg 格式大小 5M 以内的图片
           </v-col>
         </v-row>
 
@@ -91,7 +101,8 @@
 export default {
   data() {
     return {
-	  valid: true,
+      value: 1,
+      valid: true,
       userInfo: {
         username: "calf",
         position: "java开发",
@@ -114,7 +125,7 @@ export default {
           (v) => (v && v.length <= 100) || "用户签名不能超过100个字符",
         ],
         introduceRules: [
-          (v) => (v && v.length <= 300) || "个人介绍不能超过300个字符",
+          (v) => (v.length <= 300) || "个人介绍不能超过300个字符",
         ],
       },
       date: null,
@@ -144,10 +155,9 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep .userForm {
-	  .error--text {
+  .error--text {
     color: red !important;
-	caret-color: red !important;
+    caret-color: red !important;
   }
 }
-
 </style>

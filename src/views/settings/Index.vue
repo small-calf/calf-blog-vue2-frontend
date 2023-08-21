@@ -42,64 +42,7 @@
 							<v-divider></v-divider>
 							<v-expansion-panels>
 								<PersonalData></PersonalData>
-								<v-expansion-panel>
-									<v-expansion-panel-header v-slot="{ open }">
-										<v-row no-gutters>
-											<v-col cols="4"> Location </v-col>
-											<v-col
-												cols="8"
-												class="text--secondary"
-											>
-												<v-fade-transition
-													leave-absolute
-												>
-													<span v-if="open" key="0">
-														Select trip destination
-													</span>
-													<span v-else key="1">
-														{{ trip.location }}
-													</span>
-												</v-fade-transition>
-											</v-col>
-										</v-row>
-									</v-expansion-panel-header>
-									<v-expansion-panel-content>
-										<v-row no-gutters>
-											<v-spacer></v-spacer>
-											<v-col cols="5">
-												<v-select
-													v-model="trip.location"
-													:items="locations"
-													chips
-													flat
-													solo
-												></v-select>
-											</v-col>
-
-											<v-divider
-												vertical
-												class="mx-4"
-											></v-divider>
-
-											<v-col cols="3">
-												Select your destination of
-												choice
-												<br />
-												<a href="#">Learn more</a>
-											</v-col>
-										</v-row>
-
-										<v-card-actions>
-											<v-spacer></v-spacer>
-											<v-btn text color="secondary">
-												Cancel
-											</v-btn>
-											<v-btn text color="primary">
-												Save
-											</v-btn>
-										</v-card-actions>
-									</v-expansion-panel-content>
-								</v-expansion-panel>
+								<AccountSettings></AccountSettings>
 
 								<v-expansion-panel>
 									<v-expansion-panel-header v-slot="{ open }">
@@ -295,9 +238,11 @@
 
 <script>
 import PersonalData from './content/PersonalData.vue';
+import AccountSettings from './content/AccountSettings.vue';
 export default {
 	components: {
 		PersonalData,
+		AccountSettings,
 	},
 	props: {
 		dialog: {
