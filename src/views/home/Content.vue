@@ -9,7 +9,8 @@
 				<List-item col></List-item>
 			</v-col>
 			<v-col class="rotation" lg="4">
-				<Author-recommend></Author-recommend>
+				<Music-video></Music-video>
+				<Weather></Weather>
 			</v-col>
 		</v-row>
 	</v-container>
@@ -17,13 +18,15 @@
 
 <script>
 import ListItem from './ListItem.vue';
-import AuthorRecommend from './AuthorRecommend.vue';
+import MusicVideo from './MusicVideo.vue';
 import Main from '@comp/main/Main.vue';
+import Weather from '@comp/common/Weather';
 export default {
 	components: {
 		ListItem,
-		AuthorRecommend,
+		MusicVideo,
 		Main,
+		Weather,
 	},
 };
 </script>

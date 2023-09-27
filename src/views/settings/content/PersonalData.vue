@@ -64,7 +64,7 @@
             <v-textarea
               counter="300"
               dense="true"
-              label="Text"
+              label="简介"
               rows="2"
               auto-grow
               :rules="rules.introduceRules"

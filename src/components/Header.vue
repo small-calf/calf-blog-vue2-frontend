@@ -1,11 +1,12 @@
 <template>
 	<v-container class="lighten-5">
 		<v-row justify="center" align="center">
-			<v-col>
-				<v-tabs background-color="primary" fixed-tabs>
+			<v-col cols="5">
+				<v-tabs background-color="primary" fixed-tabs v-model="tab">
 					<v-tab
 						v-for="n in title"
 						:key="n.name"
+						exact-active-class="/"
 						align="center"
 						class="text-subtitle-1 font-weight-bold"
 						:to="n.path"
@@ -14,7 +15,7 @@
 					</v-tab>
 				</v-tabs>
 			</v-col>
-			<v-col cols="2">
+			<v-col>
 				<v-toolbar dense floating rounded>
 					<v-text-field
 						hide-details
@@ -100,6 +101,7 @@
 export default {
 	data() {
 		return {
+			tab: '/follow',
 			title: [
 				{ name: '首页', path: '/' },
 				{ name: '分类', path: '/category' },
@@ -123,8 +125,11 @@ export default {
 				{ title: '退出登录', path: '/logout' },
 			],
 		};
-	},
+	},	
 	methods: {
+		handleChange(tab){
+			this.tab = tab
+		},
 		//菜单路由跳转
 		menuRouterPath(path) {
 			this.$router.push(path);
@@ -137,8 +142,21 @@ export default {
 		messageRouterPath(path) {
 			this.$router.push(path);
 		},
+		isRouteMatching(param) {
+      // 提取所有的path
+		const paths = this.title.map(item => item.path);
+
+		// 检查新数组中是否包含 'a'
+		return paths.some(path => !path.includes(param));
+
+    },
 	},
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.tab-active {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+</style>

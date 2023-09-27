@@ -3,14 +3,7 @@
     <v-expansion-panel-header v-slot="{ open }">
       <v-row no-gutters>
         <v-col cols="4"> 账号设置 </v-col>
-        <v-col cols="4" class="text--secondary">
-          <!-- <v-fade-transition leave-absolute>
-            <span v-if="open" key="0"> Select trip destination </span>
-            <span v-else key="1">
-              {{ trip.location }}
-            </span>
-          </v-fade-transition> -->
-        </v-col>
+        <v-col cols="4" class="text--secondary"> </v-col>
       </v-row>
     </v-expansion-panel-header>
     <v-expansion-panel-content>
@@ -26,7 +19,7 @@
             >
               <template v-slot:append>
                 <v-btn
-                  @click="changeBindingPhone($event)"
+                  @click="changeBindingPhone('phone')"
                   depressed
                   color="primary"
                 >
@@ -41,7 +34,11 @@
               disabled
             >
               <template v-slot:append>
-                <v-btn @click="textDialog" depressed color="primary">
+                <v-btn
+                  @click="changeBindingPhone('email')"
+                  depressed
+                  color="primary"
+                >
                   换绑
                 </v-btn>
               </template>
@@ -54,7 +51,7 @@
               disabled
             >
               <template v-slot:append>
-                <v-btn @click="textDialog" depressed color="primary">
+                <v-btn @click="textDialog()" depressed color="primary">
                   解绑
                 </v-btn>
               </template>
@@ -67,8 +64,8 @@
               disabled
             >
               <template v-slot:append>
-                <v-btn @click="textDialog" depressed color="primary">
-                  解绑
+                <v-btn @click="textDialog()" depressed color="primary">
+                  修改
                 </v-btn>
               </template>
             </v-text-field>
@@ -103,7 +100,10 @@
           </v-card>
         </v-col>
       </v-row>
-      <Account-setting-dialog :dialog.sync="dialog"></Account-setting-dialog>
+      <Account-setting-dialog
+        :dialog.sync="dialog"
+        :dialogContent="dialogContent"
+      ></Account-setting-dialog>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -116,6 +116,11 @@ export default {
   },
   data() {
     return {
+      dialogContent: {
+        title: "手机号换绑",
+        sourcePhoneName: "原始手机号",
+        sourcePhone: "123456",
+      },
       dialog: false,
       date: null,
       valid: true,
@@ -185,9 +190,21 @@ export default {
   },
   methods: {
     //换绑手机号
-    changeBindingPhone(param) {
+    changeBindingPhone(type) {
       this.dialog = !this.dialog;
-      console.log(param);
+      if ("email" === type) {
+        this.dialogContent = {
+          title: "邮箱换绑",
+          sourcePhoneName: "原始邮箱",
+          sourcePhone: "123456@qq.com",
+        };
+      } else {
+        this.dialogContent = {
+          title: "手机号换绑",
+          sourcePhoneName: "原始手机号",
+          sourcePhone: "123456",
+        };
+      }
     },
     textDialog() {
       console.log("123");
@@ -196,4 +213,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep
+  .userForm
+  .v-input
+  .v-input__control
+  .v-input__slot
+  .v-input__append-inner {
+  margin-top: 10px !important;
+}
+</style>

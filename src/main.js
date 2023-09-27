@@ -15,6 +15,8 @@ tinymce.init({
 	language: 'zh_CN', //注意大小
 });
 
+
+
 new Vue({
 	router,
 	store,

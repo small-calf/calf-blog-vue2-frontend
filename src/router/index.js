@@ -33,10 +33,29 @@ const routes = [
 		name: 'Hotspot',
 		component: () => import('@views/hotspot/Hotspot.vue'),
 	},
+	/**
+	 * 关注页
+	 */
 	{
 		path: '/follow',
 		name: 'Follow',
 		component: () => import('@views/follow/Follow.vue'),
+	},
+	/**
+	 * 关注页详情
+	 */
+	{
+		path: '/followDetail/:userId',
+		name: 'FollowDetail',
+		component: () => import('@views/follow/detail/FollowDetail.vue'),
+	},
+	/**
+	 * 留言板
+	 */
+	{
+		path: '/speak',
+		name: 'Content',
+		component: Content,
 	},
 	{
 		path: '/appMain',
@@ -133,5 +152,32 @@ const router = new VueRouter({
 	base: process.env.BASE_URL,
 	routes,
 });
+
+// // 保存当前路由到localStorage
+// function saveCurrentRoute(to) {
+//   const currentRoute = router.currentRoute.fullPath;
+// 	console.log(to);
+//   localStorage.setItem('currentRoute', JSON.stringify(to.path));
+// }
+
+// // 从localStorage加载并导航到保存的当前路由
+// function loadAndNavigateToSavedRoute() {
+//   const savedRoute = localStorage.getItem('currentRoute');
+//   if (savedRoute) {
+//     router.push(JSON.parse(savedRoute));
+//     localStorage.removeItem('currentRoute'); // Remove the saved route after using it
+//   }
+// }
+
+// router.beforeEach((to, from, next) => {
+//   // Save the current route before navigating
+//   saveCurrentRoute(to);
+//   next();
+// });
+
+// // Load and navigate to the saved route after the application is initialized
+// router.onReady(() => {
+//   loadAndNavigateToSavedRoute();
+// });
 
 export default router;
