@@ -13,6 +13,16 @@ module.exports = {
 			.set('@assets', resolve('src/assets'))
 			.set('@comp', resolve('src/components'))
 			.set('@views', resolve('src/views'));
+			config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => ({
+        ...options,
+        compilerOptions: {
+          // treat any tag that starts with ion- as custom elements
+          isCustomElement: tag => tag.startsWith('ion-')
+        }
+      }))
 	},
 
 	devServer: {

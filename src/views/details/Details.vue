@@ -156,6 +156,9 @@
 							<strong class="text-h6"> 昵称 </strong>
 							<div class="text-caption text--disabled">职位</div>
 						</v-col>
+						<v-btn color="primary" @click="privateLetter">
+							<v-icon>mdi-email-outline</v-icon>
+							私信</v-btn></v-btn>
 					</v-row>
 				</v-col>
 				<v-divider></v-divider>
@@ -176,19 +179,22 @@
 					<CardList></CardList>
 				</v-col>
 			</v-col>
+			<Chat :dialog.sync="dialog"></Chat>
 		</v-row>
 	</v-container>
 </template>
 <script>
 import Toolbar from '@comp/common/Toolbar.vue';
 import CardList from '@comp/common/CardList.vue';
-
+import Chat from '@comp/common/Chat'
 export default {
 	components: {
 		Toolbar,
 		CardList,
+		Chat,
 	},
 	data: () => ({
+		dialog: false,
 		length: 3,
 		window: 0,
 		isFollow: false,
@@ -197,6 +203,9 @@ export default {
 		followFlag() {
 			this.isFollow = !this.isFollow;
 		},
+		privateLetter() {
+			this.dialog = !this.dialog
+		}
 	},
 };
 </script>
